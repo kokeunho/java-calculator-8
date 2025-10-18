@@ -5,10 +5,14 @@ import java.util.regex.Pattern;
 
 public class CustomDelimiterExtractor {
 
-    public static String extractCustomDelimiter(String Header) {
+    public static String extractCustomDelimiter(String header) {
 
-        Matcher matcher = Pattern.compile("^//(.)\\\\n").matcher(Header);
+        Matcher matcher = Pattern.compile("^//(.)\\\\n").matcher(header);
 
-        return matcher.group(1);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+
+        throw new IllegalArgumentException("커스텀 구분자를 추출할 수 없습니다.");
     }
 }
