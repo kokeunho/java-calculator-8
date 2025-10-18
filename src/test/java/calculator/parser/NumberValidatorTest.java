@@ -21,8 +21,8 @@ public class NumberValidatorTest {
     void 정상_문자열() {
 
         //when
-        String input1 = "//^\\n3,4:5^6";
-        String input2 = "//^\\n";
+        String input1 = "3,4:5^6";
+        String input2 = "";
 
         //then
         assertDoesNotThrow(() -> numberValidator.validate(input1));
@@ -33,7 +33,7 @@ public class NumberValidatorTest {
     void 구분자_시작() {
 
         //when
-        String input = "//^\\n^3,4:5";
+        String input = "^3,4:5";
 
         //then
         assertThatThrownBy(() -> numberValidator.validate(input))
@@ -45,7 +45,7 @@ public class NumberValidatorTest {
     void 연속된_구분자() {
 
         //when
-        String input = "//^\\n3,,4:5^6";
+        String input = "3,,4:5^6";
 
         //then
         assertThatThrownBy(() -> numberValidator.validate(input))
@@ -57,7 +57,7 @@ public class NumberValidatorTest {
     void 사용_불가능_구분자() {
 
         //when
-        String input = "//^\\n3,4:5&6";
+        String input = "3,4:5&6";
 
         //then
         assertThatThrownBy(() -> numberValidator.validate(input))
@@ -69,7 +69,7 @@ public class NumberValidatorTest {
     void 음수_포함() {
 
         //when
-        String input = "//^\\n3,-4:5^6";
+        String input = "3,-4:5^6";
 
         //then
         assertThatThrownBy(() -> numberValidator.validate(input))

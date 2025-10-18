@@ -13,9 +13,8 @@ public class NumberValidator implements Validator<String> {
     }
 
     @Override
-    public void validate(String input) {
+    public void validate(String numberPart) {
 
-        String numberPart = input.substring(input.indexOf("\\n") + 2);
         String p = Pattern.quote(delimiters);
 
         // 숫자 문자열이 없을 때
