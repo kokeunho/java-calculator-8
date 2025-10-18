@@ -4,7 +4,7 @@
    - **Invalid**<br>-> IllegalArgumentException
     -[ ] //만 있는 경우
     -[ ] \n만 있는 경우
-    -[ ] //, \n 사이에 숫자가 들어간 경우
+    -[ ] //가 문자열 시작에 있지 않는 경우
    - **Valid**<br>-> true 반환
 
 
