@@ -25,13 +25,9 @@ public class Application {
 
         // 커스텀 구분자 구문이 있는 경우
         if (input.startsWith("//")) {
-            int customDelimiterEndIdx = input.indexOf("\\n");
+            customDelimiterValidator.validate(input);
 
-            if (customDelimiterEndIdx == -1) {
-                throw new IllegalArgumentException("잘못된 커스텀 구분자 구문입니다.");
-            }
-
-            String customDelimiterStr = input.substring(0, customDelimiterEndIdx+2);
+            String customDelimiterStr = input.substring(0, input.indexOf("\\n") + 2);
 
             customDelimiterValidator.validate(customDelimiterStr);
 
@@ -39,7 +35,7 @@ public class Application {
 
             delimiters += customDelimiter;
 
-            numberPart = input.substring(customDelimiterEndIdx + 2);
+            numberPart = input.substring(input.indexOf("\\n") + 2);
         }
 
         NumberValidator numberValidator = new NumberValidator(delimiters);
