@@ -4,8 +4,8 @@ import calculator.delimiter.CustomDelimiterExtractor;
 import calculator.delimiter.CustomDelimiterValidator;
 import calculator.parser.NumberSeparator;
 import calculator.parser.NumberValidator;
+import camp.nextstep.edu.missionutils.Console;
 
-import java.io.Console;
 import java.util.List;
 
 public class Application {
@@ -16,8 +16,7 @@ public class Application {
         CustomDelimiterExtractor customDelimiterExtractor = new CustomDelimiterExtractor();
 
         System.out.println("덧셈할 문자열을 입력해주세요.");
-        Console console = System.console();
-        String input = console.readLine();
+        String input = Console.readLine();
 
         int result = 0;
         String numberPart = input;
